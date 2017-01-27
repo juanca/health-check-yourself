@@ -1,0 +1,12 @@
+{
+  "name": "health-check-yourself",
+  "version": "0.0.0",
+  "description": "Before you wreck yourself",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Juan Carlos Medina",
+  "license": "UNLICENSED",
+  "private": true
+}
