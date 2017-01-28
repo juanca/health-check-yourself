@@ -1,6 +1,6 @@
 module.exports = {
   entry: {
-    app: './src/index.js',
+    app: './src/index.jsx',
   },
 
   module: {
@@ -11,6 +11,17 @@ module.exports = {
         loader: 'babel-loader',
         query: {
           presets: ['babel-preset-es2015']
+        },
+      },
+      {
+        test: /\.jsx$/,
+        exclude: /(node_modules)/,
+        loader: 'babel-loader',
+        query: {
+          presets: [
+            'babel-preset-es2015',
+            'babel-preset-react',
+          ]
         },
       },
     ],
