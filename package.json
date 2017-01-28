@@ -4,9 +4,14 @@
   "description": "Before you wreck yourself",
   "main": "index.js",
   "scripts": {
+    "start": "webpack-dev-server",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "Juan Carlos Medina",
   "license": "UNLICENSED",
-  "private": true
+  "private": true,
+  "dependencies": {
+    "webpack": "^1.14.0",
+    "webpack-dev-server": "^1.16.2"
+  }
 }
