@@ -1,12 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 
-console.log('hello world!');
+import Form from './form';
 
-class Foo extends React.Component {
-  render() {
-    return <div>Boo!</div>;
-  }
-}
-
-ReactDOM.render(<Foo />, document.body);
+ReactDOM.render(<Form />, document.body);

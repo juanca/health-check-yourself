@@ -29,5 +29,13 @@ module.exports = {
 
   output: {
     filename: 'bundle.js',
-  }
+  },
+
+  resolve: {
+    extensions: [
+      '',
+      '.js',
+      '.jsx',
+    ],
+  },
 };
