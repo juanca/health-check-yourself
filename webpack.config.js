@@ -4,27 +4,33 @@ module.exports = {
   },
 
   module: {
-    loaders: [
-      {
-        test: /\.js$/,
-        exclude: /(node_modules)/,
-        loader: 'babel-loader',
-        query: {
-          presets: ['babel-preset-es2015']
-        },
+    loaders: [{
+      include: /src/,
+      loader: 'babel-loader',
+      query: {
+        presets: [
+          'babel-preset-es2015'
+        ],
       },
-      {
-        test: /\.jsx$/,
-        exclude: /(node_modules)/,
-        loader: 'babel-loader',
-        query: {
-          presets: [
-            'babel-preset-es2015',
-            'babel-preset-react',
-          ]
-        },
+      test: /\.js$/,
+    }, {
+      include: /src/,
+      loader: 'babel-loader',
+      query: {
+        presets: [
+          'babel-preset-es2015',
+          'babel-preset-react',
+        ],
       },
-    ],
+      test: /\.jsx$/,
+    }, {
+      include: /src/,
+      loaders: [
+        'style-loader',
+        'css-loader'
+      ],
+      test: /\.css/,
+    }],
   },
 
   output: {
