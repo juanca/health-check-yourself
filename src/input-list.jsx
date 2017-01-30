@@ -24,7 +24,6 @@ export default class InputList extends React.Component {
       <fieldset>
         <legend>{this.props.legend}</legend>
         {this.props.values.map(this.renderListItem)}
-        {this.renderListItem({ value: '' }, 'new')}
       </fieldset>
     );
   }

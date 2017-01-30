@@ -3,18 +3,24 @@ import React from 'react';
 import EmotionSelect from './emotion-select.jsx';
 import InputList from './input-list.jsx';
 
+const emptyWeeklyGoal = {
+  done: false,
+  value: '',
+};
+
+const fixtures = {
+  weeklyGoals: [
+    { done: true, value: 'hello world' },
+    { done: false, value: 'hola mundo' },
+  ],
+};
+
 export default class Form extends React.Component {
   constructor(props) {
     super(props);
 
     this.state = {
-      weeklyGoals: [{
-        done: true,
-        value: 'hello world',
-      }, {
-        done: false,
-        value: 'hola mundo',
-      }],
+      weeklyGoals: fixtures.weeklyGoals.concat(emptyWeeklyGoal),
     };
 
     this.onWeeklyGoalChange = this.onWeeklyGoalChange.bind(this);
@@ -22,10 +28,13 @@ export default class Form extends React.Component {
 
   onWeeklyGoalChange(index, event) {
     const goal = this.state.weeklyGoals[index];
-    const updateGoal = (goal, i) => i === index ? Object.assign({}, goal, { value: event.target.value }) : goal;
+    const lastGoalIndex = this.state.weeklyGoals.length - 1;
 
     this.setState({
-      weeklyGoals: this.state.weeklyGoals.map(updateGoal),
+      weeklyGoals: this.state.weeklyGoals
+        .map((goal, i) => i === index ? Object.assign({}, goal, { value: event.target.value }) : goal)
+        .filter((goal) => goal.value)
+        .concat(emptyWeeklyGoal),
     });
   }
 
