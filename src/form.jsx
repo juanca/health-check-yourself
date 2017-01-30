@@ -3,16 +3,19 @@ import React from 'react';
 import EmotionSelect from './emotion-select.jsx';
 import InputList from './input-list.jsx';
 
-const emptyWeeklyGoal = {
-  done: false,
-  value: '',
-};
+const emptyWeeklyGoal = { done: false, value: '' };
+const emptyBad = { value: '' };
+const emptyGood = { value: '' };
+const emptyNeutral = { value: '' };
 
 const fixtures = {
   weeklyGoals: [
     { done: true, value: 'hello world' },
     { done: false, value: 'hola mundo' },
   ],
+  bad: [{ value: 'booo' }, { value: 'waaah' }],
+  good: [{ value: 'weee' }, { value: 'zweee' }],
+  neutral: [{ value: 'whomp whopm whomp whpom' }, { value: 'piiiu' }],
 };
 
 export default class Form extends React.Component {
@@ -21,6 +24,9 @@ export default class Form extends React.Component {
 
     this.state = {
       weeklyGoals: fixtures.weeklyGoals.concat(emptyWeeklyGoal),
+      bad: fixtures.bad.concat(emptyBad),
+      good: fixtures.good.concat(emptyGood),
+      neutral: fixtures.neutral.concat(emptyNeutral),
     };
 
     this.onInputListChange = this.onInputListChange.bind(this);
@@ -54,23 +60,23 @@ export default class Form extends React.Component {
 
         <InputList
           legend="Bad stuff"
-          onChange={() => {}}
+          onChange={this.onInputListChange.bind(this, 'bad', emptyBad)}
           placeholder="1 bad stuff"
-          values={[{ value: 'booo' }, { value: 'waaah' }]}
+          values={this.state.bad}
         />
 
         <InputList
           legend="Good stuff"
-          onChange={() => {}}
+          onChange={this.onInputListChange.bind(this, 'good', emptyGood)}
           placeholder="1 good stuff"
-          values={[{ value: 'weee' }, { value: 'zweee' }]}
+          values={this.state.good}
         />
 
         <InputList
           legend="Other stuff"
-          onChange={() => {}}
+          onChange={this.onInputListChange.bind(this, 'neutral', emptyNeutral)}
           placeholder="1 other stuff"
-          values={[{ value: 'whomp whopm whomp whpom' }, { value: 'piiiu' }]}
+          values={this.state.neutral}
         />
 
         <button type="submit">Save!</button>
