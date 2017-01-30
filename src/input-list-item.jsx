@@ -20,6 +20,7 @@ export default class InputListItem extends React.Component {
           className={styles.input}
           key={this.state.uid}
           name={`${this.state.uid}`}
+          onChange={this.props.onChange}
           placeholder={this.props.placeholder}
           type="text"
           value={this.props.value} />
@@ -30,5 +31,5 @@ export default class InputListItem extends React.Component {
 
 InputListItem.propTypes = {
   placeholder: React.PropTypes.string.isRequired,
-  values: React.PropTypes.arrayOf(React.PropTypes.string).isRequired,
+  value: React.PropTypes.string.isRequired,
 };
