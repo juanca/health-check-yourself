@@ -1,0 +1,13 @@
+:local .container {
+  display: flex;
+  padding: 5px;
+}
+
+:local .input {
+  border-radius: 3px;
+  border-width: 1px;
+  border-style: solid;
+  display: block;
+  flex-grow: 1;
+  padding: 0.5rem;
+}
