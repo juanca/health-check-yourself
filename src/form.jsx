@@ -23,18 +23,18 @@ export default class Form extends React.Component {
       weeklyGoals: fixtures.weeklyGoals.concat(emptyWeeklyGoal),
     };
 
-    this.onWeeklyGoalChange = this.onWeeklyGoalChange.bind(this);
+    this.onInputListChange = this.onInputListChange.bind(this);
   }
 
-  onWeeklyGoalChange(index, event) {
-    const goal = this.state.weeklyGoals[index];
-    const lastGoalIndex = this.state.weeklyGoals.length - 1;
+  onInputListChange(stateKey, empty, index, event) {
+    const list = this.state[stateKey];
+    const item = list[index];
 
     this.setState({
-      weeklyGoals: this.state.weeklyGoals
-        .map((goal, i) => i === index ? Object.assign({}, goal, { value: event.target.value }) : goal)
-        .filter((goal) => goal.value)
-        .concat(emptyWeeklyGoal),
+      [stateKey]: list
+        .map((listItem, i) => i === index ? Object.assign({}, listItem, { value: event.target.value }) : listItem)
+        .filter((item) => item.value)
+        .concat(empty),
     });
   }
 
@@ -43,7 +43,7 @@ export default class Form extends React.Component {
       <form>
         <InputList
           legend="Weekly Goals"
-          onChange={this.onWeeklyGoalChange}
+          onChange={this.onInputListChange.bind(this, 'weeklyGoals', emptyWeeklyGoal)}
           placeholder="Accomplish by next week."
           values={this.state.weeklyGoals}
         />
