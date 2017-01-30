@@ -1,5 +1,6 @@
 import React from 'react';
 
+import EmotionSelect from './emotion-select.jsx';
 import InputList from './input-list.jsx';
 
 export default class Form extends React.Component {
@@ -12,25 +13,9 @@ export default class Form extends React.Component {
           values={['hello world', 'hola mundo']}
         />
 
-        <fieldset id="work-emotion">
-          Overall work day emotion:
-          <label for="work-emotion-happy">:)</label>
-          <input type="radio" id="work-emotion-happy" name="work-emotion" />
-          <label for="work-emotion-neutral">:|</label>
-          <input type="radio" id="work-emotion-neutral" name="work-emotion" />
-          <label for="work-emotion-sad">:(</label>
-          <input type="radio" id="work-emotion-sad" name="work-emotion" />
-        </fieldset>
+        <EmotionSelect id="work-emotion" legend="Overall work day" />
 
-        <fieldset id="day-emotion">
-          Overall non-work day emotion:
-          <label for="day-emotion-happy">:)</label>
-          <input type="radio" id="day-emotion-happy" name="day-emotion" />
-          <label for="day-emotion-neutral">:|</label>
-          <input type="radio" id="day-emotion-neutral" name="day-emotion" />
-          <label for="day-emotion-sad">:(</label>
-          <input type="radio" id="day-emotion-sad" name="day-emotion" />
-        </fieldset>
+        <EmotionSelect id="day-emotion" legend="Overall day" />
 
         <InputList
           legend="Bad stuff"
