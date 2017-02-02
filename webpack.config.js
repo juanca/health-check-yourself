@@ -30,6 +30,12 @@ module.exports = {
         'css-loader'
       ],
       test: /\.css$/,
+    }, {
+      loader: 'svg-sprite',
+      query: {
+        name: '[name]_[hash]',
+      },
+      test: /\.svg$/,
     }],
   },
 
