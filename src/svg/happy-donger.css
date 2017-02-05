@@ -1,0 +1,6 @@
+:local .donger {
+  composes: donger from './donger.css';
+
+  height: 19px;
+  width: 70px;
+}
