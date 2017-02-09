@@ -3,25 +3,21 @@ import ReactDOM from 'react-dom';
 
 import Form from './form.jsx';
 
-const fixtures = {
-  weeklyGoals: [
-    { done: true, value: 'hello world' },
-    { done: false, value: 'hola mundo' },
-  ],
-  bad: [{ value: 'booo' }, { value: 'waaah' }],
-  good: [{ value: 'weee' }, { value: 'zweee' }],
-  neutral: [{ value: 'whomp whopm whomp whpom' }, { value: 'piiiu' }],
-};
-
-
 document.addEventListener('DOMContentLoaded', function(event) {
-  window.localStorage.getItem('health-check-yourself')
+  function getLocalStorage(key) {
+    return JSON.parse(window.localStorage.getItem(`health-check-yourself-${key}`));
+  }
+
+  function setLocalStorage(key, object) {
+    window.localStorage.setItem(JSON.stringify(object));
+  }
+
   ReactDOM.render(
     <Form
-      weeklyGoals={fixtures.weeklyGoals}
-      bad={fixtures.bad}
-      good={fixtures.good}
-      neutral={fixtures.neutral}
+      weeklyGoals={getLocalStorage('weeklyGoals') || []}
+      bad={getLocalStorage('bad') || []}
+      good={getLocalStorage('good') || []}
+      neutral={getLocalStorage('neutral') || []}
     />,
     document.querySelector('#content-container')
   );
