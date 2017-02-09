@@ -3,30 +3,28 @@ import React from 'react';
 import EmotionSelect from './emotion-select.jsx';
 import InputList from './input-list.jsx';
 
+const API = {
+  weeklyGoals: React.PropTypes.array.isRequired,
+  bad: React.PropTypes.array.isRequired,
+  good: React.PropTypes.array.isRequired,
+  neutral: React.PropTypes.array.isRequired,
+};
+
 const emptyWeeklyGoal = { done: false, value: '' };
 const emptyBad = { value: '' };
 const emptyGood = { value: '' };
 const emptyNeutral = { value: '' };
 
-const fixtures = {
-  weeklyGoals: [
-    { done: true, value: 'hello world' },
-    { done: false, value: 'hola mundo' },
-  ],
-  bad: [{ value: 'booo' }, { value: 'waaah' }],
-  good: [{ value: 'weee' }, { value: 'zweee' }],
-  neutral: [{ value: 'whomp whopm whomp whpom' }, { value: 'piiiu' }],
-};
 
 export default class Form extends React.Component {
   constructor(props) {
     super(props);
 
     this.state = {
-      weeklyGoals: fixtures.weeklyGoals.concat(emptyWeeklyGoal),
-      bad: fixtures.bad.concat(emptyBad),
-      good: fixtures.good.concat(emptyGood),
-      neutral: fixtures.neutral.concat(emptyNeutral),
+      weeklyGoals: props.weeklyGoals.concat(emptyWeeklyGoal),
+      bad: props.bad.concat(emptyBad),
+      good: props.good.concat(emptyGood),
+      neutral: props.neutral.concat(emptyNeutral),
     };
 
     this.onInputListChange = this.onInputListChange.bind(this);
@@ -84,3 +82,5 @@ export default class Form extends React.Component {
     );
   }
 }
+
+Form.propTypes = API;
