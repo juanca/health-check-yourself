@@ -8,6 +8,7 @@ const API = {
   bad: React.PropTypes.array.isRequired,
   good: React.PropTypes.array.isRequired,
   neutral: React.PropTypes.array.isRequired,
+  onInputListChange: React.PropTypes.func.isRequired,
 };
 
 const emptyWeeklyGoal = { done: false, value: '' };
@@ -33,13 +34,15 @@ export default class Form extends React.Component {
   onInputListChange(stateKey, empty, index, event) {
     const list = this.state[stateKey];
     const item = list[index];
-
-    this.setState({
-      [stateKey]: list
-        .map((listItem, i) => i === index ? Object.assign({}, listItem, { value: event.target.value }) : listItem)
-        .filter((item) => item.value)
-        .concat(empty),
-    });
+    const newList = list
+      .map((listItem, i) =>
+        i === index ?
+        Object.assign({}, listItem, { value: event.target.value })
+        : listItem
+      )
+      .filter((item) => item.value);
+    this.setState({ [stateKey]: newList.concat(empty) });
+    this.props.onInputListChange(stateKey, newList);
   }
 
   render() {
