@@ -1,8 +1,8 @@
 import React from 'react';
 
-const happySvg = require('./svg/happy-donger.svg');
-const neutralSvg = require('./svg/neutral-donger.svg');
-const sadSvg = require('./svg/sad-donger.svg');
+const happySvg = require('../svg/happy-donger.svg');
+const neutralSvg = require('../svg/neutral-donger.svg');
+const sadSvg = require('../svg/sad-donger.svg');
 const styles = require('./emotion-select.css');
 
 export default class EmotionSelect extends React.Component {

@@ -1,6 +1,6 @@
 import React from 'react';
 
-import EmotionSelect from './emotion-select.jsx';
+import EmotionSelect from './components/emotion-select.jsx';
 import InputList from './input-list.jsx';
 
 const API = {
