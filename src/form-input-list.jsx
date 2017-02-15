@@ -1,6 +1,6 @@
 import React from 'react';
 
-import styles from './input-list-item.css';
+import InputList from './components/input-list.jsx';
 
 let counter = 0;
 
@@ -15,16 +15,11 @@ export default class InputListItem extends React.Component {
 
   render() {
     return (
-      <div className={styles.container}>
-        <input
-          className={styles.input}
-          key={this.state.uid}
-          name={`${this.state.uid}`}
-          onChange={this.props.onChange}
-          placeholder={this.props.placeholder}
-          type="text"
-          value={this.props.value} />
-      </div>
+      <InputList
+        inputKey={this.state.uid}
+        inputName={this.state.uid}
+        {...this.props}
+      />
     );
   }
 }

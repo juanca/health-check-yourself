@@ -1,7 +1,7 @@
 import React from 'react';
 
 import EmotionSelect from './components/emotion-select.jsx';
-import InputList from './input-list.jsx';
+import InputList from './form-input-list.jsx';
 
 const API = {
   weeklyGoals: React.PropTypes.array.isRequired,
